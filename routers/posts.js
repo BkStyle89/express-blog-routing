@@ -43,8 +43,12 @@ const posts = [
 
 
 router.get("/", (req,res)=>{
-  res.send("lista dei post");
+  res.json(posts);
+  
+
 });
+
+
 
 router.get ("/:id", (req,res)=>{
 console.log(req.params);
