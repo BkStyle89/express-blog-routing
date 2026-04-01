@@ -76,8 +76,12 @@ router.patch("/:id",(req,res)=>{
 
 router.delete("/:id",(req,res)=>{
 res.send(`elimina un post${req.params.id}`);
+    const deletedPost = posts.splice(posts.id)
+    console.log(deletedPost);
     
 });
+
+
 
 
 module.exports =router;
