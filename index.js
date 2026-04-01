@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const postRouter = require('./rotues/posts')
 
 // Serve static assets
 app.use('/images', express.static('public/images'));
@@ -10,7 +11,7 @@ app.get('/', (req, res) => {
   res.send('Server del mio blog');
 });
 
-
+app.use("/posts", postRouter)
 
 // Array of posts
 const posts = [
@@ -61,26 +62,3 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-app.get("/posts", (req,res)=>{
-  res.send("lista dei post");
-});
-
-app.get ("/posts/:id", (req,res)=>{
-  res.send (`dettagli sui blog${req.params.id}`);
-});
-
-app.post ("/posts",(req,res)=>{
-  res.send("creazione nuovo post");
-});
-
-app.put("/posts/:id",(req,res)=>{
-  res.send(`modifica del post${req.params.id}`);
-});
-
-app.patch("/posts/:id",(req,res)=>{
-  res.send(`modifica parziale del post ${req.params.id}`);
-});
-
-app.delete("/posts/:id",(req,res)=>{
-res.send(`elimina un post${req.params.id}`);
-});
