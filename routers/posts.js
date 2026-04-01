@@ -47,7 +47,15 @@ router.get("/", (req,res)=>{
 });
 
 router.get ("/:id", (req,res)=>{
-  res.send (`dettagli sui blog${req.params.id}`);
+console.log(req.params);
+console.log(req.params.id);
+
+  const post = posts.find(post => post.id === parseInt(req.params.id));
+  if(post){
+    res.json(post);
+  } else {
+    res.status(404).json({message: "post not found"});
+  }
 });
 
 router.post ("/",(req,res)=>{
