@@ -64,6 +64,9 @@ console.log(req.params.id);
 
 router.post ("/",(req,res)=>{
   res.send("creazione nuovo post");
+    const newPost = posts.push(posts.index)
+    console.log(newPost);
+    
 });
 
 router.put("/:id",(req,res)=>{
